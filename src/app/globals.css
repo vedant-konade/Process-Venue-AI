@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next { height: 100%; }
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(circle at 20% 10%, rgba(0,90,90,0.06), transparent 15%), linear-gradient(180deg, #071717 0%, #0b0f10 65%);
+  color: #e6edf0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* force inputs/buttons to have no browser border/outlines by default */
+input, textarea, button {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* small helpers */
+h1 { font-size: 32px; font-weight: 700; }
+p, input, button { font-size: 15px; }
+
+/* Ensure full-height layout for grid-based app shell */
+html,
+body {
+  height: 100%;
+}
+
+/* Global body defaults */
+body {
+  background: radial-gradient(
+      1200px 600px at 20% -10%,
+      rgba(99, 102, 241, 0.15),
+      transparent
+    ),
+    #0b0f1a;
+
+  color: var(--text-primary);
+}
+
+
+/* Improve textarea and input consistency */
+textarea,
+input,
+select,
+button {
+  font-family: inherit;
+}
+
+/* Prevent textarea resize breaking layout */
+textarea {
+  resize: none;
+}
+
+/* Smooth scrolling for long outputs */
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --bg-app: #0b0f1a;
+  --bg-panel: rgba(255, 255, 255, 0.06);
+  --bg-panel-solid: #111827;
+  --border-soft: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+
+  --accent: #6366f1; /* indigo */
+  --accent-soft: rgba(99, 102, 241, 0.15);
+}
+body {
+  background: radial-gradient(
+      800px 400px at 50% -20%,
+      rgba(99, 102, 241, 0.12),
+      transparent
+    ),
+    #0b0f1a;
+}
+body {
+  background: radial-gradient(
+      900px 500px at 50% -20%,
+      rgba(99, 102, 241, 0.15),
+      transparent
+    ),
+    #0b0f1a;
+}
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  letter-spacing: -0.01em;
+}
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+}
+body {
+  background: radial-gradient(
+      700px 400px at 50% 35%,
+      rgba(45, 212, 191, 0.12),
+      transparent
+    ),
+    #0e1116;
+}
+
+.pv-input-container { /* optional utility if you wrap the outer div */ }
+
+input, textarea, button {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent;
+}
+
+/* subtle rounded borders for icon buttons if you use utility classes instead of inline styles */
+.pv-icon-btn {
+  background: #0b1112;
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 10px;
+  height: 44px;
+  width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* focus ring for accessibility (soft teal) */
+.pv-icon-btn:focus {
+  box-shadow: 0 0 0 4px rgba(16,160,160,0.06);
+}
+
+/* make the whole container feel inset */
+.pv-input-inner {
+  box-shadow: inset 0 4px 20px rgba(0,0,0,0.6);
+}
+
+.pv-orb-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.pv-orb {
+  width: 420px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* responsive fallback for small screens */
+@media (max-width: 640px) {
+  .pv-orb { width: 260px; height: 260px; }
+}
+@media (min-width: 1600px) {
+  .pv-orb { width: 520px; height: 520px; }
+}
+
+/* Stats row: soft, low-contrast, slightly lifted and blended */
+.pv-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.55), inset 0 1px 0 rgba(255,255,255,0.01);
+  backdrop-filter: blur(6px) saturate(1.05);
+}
+
+/* Floating stats pill (subtle, centered, sits above the search bar) */
+.pv-stats-floating {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 18px 40px rgba(2,6,23,0.55), 0 6px 18px rgba(16,183,173,0.03);
+  backdrop-filter: blur(6px) saturate(1.05);
+  transform: translateY(-44px); /* floats above the search bar */
+  transition: transform .25s ease;
+  z-index: 40;
+}
+
+/* Items inside pill */
+.pv-stat-item { display: flex; flex-direction: column; align-items: center; min-width: 110px; }
+.pv-stat-label { font-size: 12px; color: rgba(255,255,255,0.6); line-height:1; }
+.pv-stat-value { font-size: 15px; color: #7ee7e0; font-weight:600; margin-top:4px; line-height:1; }
+
+/* subtle separator */
+.pv-separator {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
+  opacity: 0.6;
+  border-radius: 1px;
+}
+
+/* responsive tweaks */
+@media (max-width: 640px) {
+  .pv-stats-floating { transform: translateY(-28px); padding: 6px 12px; gap:10px; }
+  .pv-stat-item { min-width: 84px; }
+  .pv-stat-value { font-size: 13px; }
+}
+
+/* typography */
+.pv-stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1;
+}
+.pv-stat-value {
+  font-size: 15px;
+  color: #7ee7e0; /* soft teal accent */
+  font-weight: 600;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+/* responsive: keep compact on small screens */
+@media (max-width: 640px) {
+  .pv-stats { gap: 10px; padding: 6px 10px; border-radius: 10px; }
+  .pv-stat-value { font-size: 13px; }
+}

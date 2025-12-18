@@ -1,6 +1,7 @@
 "use client";
 
-import { useApp, ModelType } from "../../context/AppContext";
+import { useApp } from "../../context/AppContext";
+import type { ModelType } from "../../types";
 
 export default function ModelPanel() {
   const {
@@ -14,10 +15,18 @@ export default function ModelPanel() {
   } = useApp();
 
   return (
-    <aside className="border-l bg-white p-4 text-sm">
-      <h3 className="font-semibold mb-4">Model Information</h3>
+<aside className="m-4 rounded-2xl bg-white/5 backdrop-blur-xl
+                 border border-white/10 p-6 space-y-6">
 
-      <label htmlFor="model" className="block mb-2">Model</label>
+      <h3 className="font-semibold text-sm uppercase tracking-wide text-gray-600">
+  Execution Settings
+</h3>
+
+
+      <h3 className="font-semibold text-sm uppercase tracking-wide text-gray-600">
+  Execution Settings
+</h3>
+
       <select
         id="model"
         value={model}
@@ -57,13 +66,13 @@ export default function ModelPanel() {
         className="w-full border px-2 py-1"
       />
 
-      {metrics && (
-        <div className="mt-6 text-xs text-gray-600">
-          <p>Cost: ${metrics.cost.toFixed(4)}</p>
-          <p>Latency: {metrics.latency} ms</p>
-          <p>Tokens Used: {metrics.tokens}</p>
-        </div>
-      )}
+{metrics && (
+  <div className="rounded-md border border-[var(--border-soft)] bg-gray-50 p-3 text-xs space-y-1">
+    <p><span className="text-gray-500">Cost</span>: ${metrics.cost.toFixed(4)}</p>
+    <p><span className="text-gray-500">Latency</span>: {metrics.latency} ms</p>
+    <p><span className="text-gray-500">Tokens</span>: {metrics.tokens}</p>
+  </div>
+)}
     </aside>
   );
 }
